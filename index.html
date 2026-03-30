@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rulof P. Burger — Professor of Economics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1c2b40;
+      --cream:  #f5f1eb;
+      --sage:   #3d6b52;
+      --gold:   #b8953a;
+      --muted:  #6b7280;
+      --light:  #e8e2d9;
+      --white:  #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem;
+      background: rgba(245, 241, 235, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--light);
+    }
+    nav .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600; font-size: 1.15rem;
+      color: var(--navy); text-decoration: none; letter-spacing: 0.02em;
+    }
+    nav ul { list-style: none; display: flex; gap: 2.2rem; }
+    nav ul li a {
+      text-decoration: none; color: var(--muted);
+      font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav ul li a:hover { color: var(--sage); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 6rem 3rem 3rem;
+      gap: 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -20%; right: -10%; width: 55%; height: 130%;
+      background: radial-gradient(ellipse at center, #d6e8dc 0%, transparent 70%);
+      opacity: 0.55; pointer-events: none;
+    }
+    .hero-text { position: relative; z-index: 1; }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--sage); margin-bottom: 1.2rem;
+    }
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 6vw, 5rem);
+      font-weight: 300; line-height: 1.08;
+      color: var(--navy); margin-bottom: 1.2rem;
+    }
+    .hero-name em { font-style: italic; color: var(--sage); }
+    .hero-title {
+      font-size: 1rem; color: var(--muted); font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+    .hero-title strong { color: var(--navy); font-weight: 500; }
+    .hero-divider {
+      width: 3rem; height: 2px; background: var(--gold);
+      margin: 1.8rem 0;
+    }
+    .hero-bio {
+      font-size: 1.02rem; color: #374151; max-width: 520px; line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+    .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.65rem 1.4rem; border-radius: 2px;
+      font-size: 0.8rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--navy); color: var(--white);
+    }
+    .btn-primary:hover { background: var(--sage); }
+    .btn-outline {
+      border: 1.5px solid var(--navy); color: var(--navy);
+    }
+    .btn-outline:hover { background: var(--navy); color: var(--white); }
+
+    .hero-card {
+      position: relative; z-index: 1;
+      background: var(--white);
+      border: 1px solid var(--light);
+      border-radius: 4px;
+      padding: 2.5rem;
+      box-shadow: 0 8px 40px rgba(28,43,64,0.08);
+    }
+    .hero-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 600;
+      margin-bottom: 1.4rem; color: var(--navy);
+    }
+    .info-row {
+      display: flex; gap: 0.75rem;
+      align-items: flex-start;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--light);
+      font-size: 0.88rem;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-label {
+      min-width: 80px; font-weight: 500; color: var(--muted);
+      font-size: 0.75rem; letter-spacing: 0.06em;
+      text-transform: uppercase; padding-top: 2px;
+    }
+    .info-value { color: var(--navy); }
+    .info-value a { color: var(--sage); text-decoration: none; }
+    .info-value a:hover { text-decoration: underline; }
+
+    /* ── SECTIONS ── */
+    section { padding: 5.5rem 3rem; }
+    section:nth-child(even) { background: var(--white); }
+
+    .section-inner { max-width: 1060px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 300; color: var(--navy);
+      margin-bottom: 3rem; line-height: 1.2;
+    }
+    .section-title em { font-style: italic; color: var(--sage); }
+
+    /* ── RESEARCH ── */
+    .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+    .research-card {
+      background: var(--cream);
+      border: 1px solid var(--light);
+      border-left: 3px solid var(--sage);
+      padding: 1.6rem 1.4rem;
+      border-radius: 2px;
+    }
+    .research-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-weight: 600;
+      color: var(--navy); margin-bottom: 0.5rem;
+    }
+    .research-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── PUBLICATIONS ── */
+    .pub-list { display: flex; flex-direction: column; gap: 1.6rem; }
+    .pub-item {
+      display: grid; grid-template-columns: 48px 1fr;
+      gap: 1.2rem; align-items: start;
+      padding: 1.6rem;
+      background: var(--cream);
+      border: 1px solid var(--light);
+      border-radius: 3px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .pub-item:hover { border-color: var(--sage); box-shadow: 0 4px 20px rgba(61,107,82,0.08); }
+    .pub-year {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 300;
+      color: var(--gold); line-height: 1.2;
+      text-align: center; padding-top: 2px;
+    }
+    .pub-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.08rem; font-weight: 600;
+      color: var(--navy); margin-bottom: 0.3rem; line-height: 1.4;
+    }
+    .pub-authors { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.2rem; }
+    .pub-journal { font-size: 0.85rem; color: var(--sage); font-style: italic; }
+
+    /* ── TEACHING ── */
+    .teaching-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .teaching-card {
+      background: var(--white);
+      border: 1px solid var(--light);
+      padding: 1.5rem;
+      border-radius: 3px;
+    }
+    .level-tag {
+      display: inline-block; font-size: 0.68rem;
+      font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.2rem 0.6rem;
+      border-radius: 2px; margin-bottom: 0.7rem;
+    }
+    .level-grad { background: #dbeafe; color: #1e40af; }
+    .level-under { background: #d1fae5; color: #065f46; }
+    .teaching-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 600; color: var(--navy);
+    }
+
+    /* ── CONTACT ── */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .contact-intro {
+      font-size: 1.05rem; color: #374151; line-height: 1.8; margin-bottom: 2rem;
+    }
+    .contact-detail {
+      display: flex; align-items: flex-start; gap: 0.8rem;
+      margin-bottom: 1.2rem; font-size: 0.92rem;
+    }
+    .contact-detail .icon {
+      width: 36px; height: 36px;
+      background: var(--sage); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-detail .icon svg { width: 16px; height: 16px; fill: white; }
+    .contact-detail .cd-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+    .contact-detail .cd-value { color: var(--navy); font-weight: 500; }
+    .contact-detail a { color: var(--sage); text-decoration: none; }
+
+    .affiliations { display: flex; flex-direction: column; gap: 1rem; }
+    .affil-item {
+      padding: 1.2rem 1.4rem;
+      background: var(--cream);
+      border: 1px solid var(--light);
+      border-left: 3px solid var(--gold);
+      border-radius: 2px;
+    }
+    .affil-item h4 { font-size: 0.9rem; font-weight: 500; color: var(--navy); margin-bottom: 0.15rem; }
+    .affil-item p { font-size: 0.8rem; color: var(--muted); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.55);
+      text-align: center; padding: 2rem 3rem;
+      font-size: 0.8rem;
+    }
+    footer a { color: rgba(255,255,255,0.75); text-decoration: none; }
+    footer a:hover { color: white; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-text > * { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+    .hero-eyebrow    { animation-delay: 0.1s; }
+    .hero-name       { animation-delay: 0.25s; }
+    .hero-title      { animation-delay: 0.35s; }
+    .hero-divider    { animation-delay: 0.4s; }
+    .hero-bio        { animation-delay: 0.5s; }
+    .hero-links      { animation-delay: 0.6s; }
+    .hero-card       { opacity: 0; animation: fadeUp 0.7s ease 0.5s forwards; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      nav ul { gap: 1.2rem; }
+      .hero { grid-template-columns: 1fr; padding: 5rem 1.5rem 3rem; gap: 2.5rem; min-height: auto; }
+      .hero::before { display: none; }
+      section { padding: 3.5rem 1.5rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#home">Rulof P. Burger</a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <span class="hero-eyebrow">Professor of Economics</span>
+    <h1 class="hero-name">Rulof P.<br /><em>Burger</em></h1>
+    <p class="hero-title">
+      <strong>Stellenbosch University</strong> · Department of Economics
+    </p>
+    <p class="hero-title">
+      <strong>Founding Director</strong> · Predictive Insights
+    </p>
+    <div class="hero-divider"></div>
+    <p class="hero-bio">
+      Micro-econometrician and labour economist using rigorous quantitative methods
+      to understand South African labour markets, poverty, and inequality.
+      Doctoral graduate of Oxford University; J-PAL affiliated researcher.
+    </p>
+    <div class="hero-links">
+      <a class="btn btn-primary" href="https://scholar.google.com/citations?user=vyGCfDoAAAAJ&hl=en" target="_blank">Google Scholar</a>
+      <a class="btn btn-outline" href="https://www.ekon.sun.ac.za/staff/burger-rulof" target="_blank">SU Staff Page</a>
+      <a class="btn btn-outline" href="https://www.linkedin.com/in/rulof-burger-11562586/" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <h3>Quick Info</h3>
+    <div class="info-row">
+      <span class="info-label">Position</span>
+      <span class="info-value">Professor, Dept. of Economics</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Institution</span>
+      <span class="info-value">Stellenbosch University</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Office</span>
+      <span class="info-value">Schumann 511 · +27 (0)21 808 2328</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Email</span>
+      <span class="info-value"><a href="mailto:rulof@sun.ac.za">rulof@sun.ac.za</a></span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Education</span>
+      <span class="info-value">DPhil (Oxford) · MPhil (Cambridge) · MComm (Stellenbosch)</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Industry</span>
+      <span class="info-value"><a href="https://predictiveinsights.net" target="_blank">Predictive Insights ↗</a></span>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-inner">
+    <p class="section-label">Areas of Focus</p>
+    <h2 class="section-title">Research <em>Interests</em></h2>
+    <div class="research-grid">
+      <div class="research-card">
+        <h4>Labour Economics</h4>
+        <p>Employment, wages, unemployment dynamics, and labour market transitions in South Africa.</p>
+      </div>
+      <div class="research-card">
+        <h4>Micro-econometrics</h4>
+        <p>Programme evaluation, non-parametric estimation, panel data methods, and limited dependent variable models.</p>
+      </div>
+      <div class="research-card">
+        <h4>Development Economics</h4>
+        <p>Poverty, inequality, social grants, and economic mobility in developing contexts.</p>
+      </div>
+      <div class="research-card">
+        <h4>Behavioural Economics</h4>
+        <p>Behavioural interventions, field experiments, and the intention–behaviour gap.</p>
+      </div>
+      <div class="research-card">
+        <h4>Education Economics</h4>
+        <p>Returns to schooling, teacher quality, and the impact of education policy on the labour market.</p>
+      </div>
+      <div class="research-card">
+        <h4>Predictive Analytics</h4>
+        <p>Machine learning approaches to demand forecasting, applied through Predictive Insights.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-inner">
+    <p class="section-label">Peer-Reviewed Work</p>
+    <h2 class="section-title">Selected <em>Publications</em></h2>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-year">2019</div>
+        <div>
+          <p class="pub-title">Bridging the Intention-Behavior Gap? The Effect of Plan-Making Prompts on Job Search and Employment</p>
+          <p class="pub-authors">Abel M., Burger R.P., Carranza E., Piraino P.</p>
+          <p class="pub-journal">American Economic Journal: Applied Economics, 11(2), 1–19</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2015</div>
+        <div>
+          <p class="pub-title">The Effect of Schooling on Worker Productivity: Evidence from a South African Industry Panel</p>
+          <p class="pub-authors">Burger R.P. &amp; Teal F.J.</p>
+          <p class="pub-journal">Journal of African Economies, 24(5), 629–644</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2015</div>
+        <div>
+          <p class="pub-title">The Unintended Consequences of Education Policies on South African Participation and Unemployment</p>
+          <p class="pub-authors">Burger R., van der Berg S., von Fintel D.</p>
+          <p class="pub-journal">South African Journal of Economics, 83(1), 74–100</p>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2012</div>
+        <div>
+          <p class="pub-title">The Fertility Transition in South Africa: A Retrospective Panel Data Analysis</p>
+          <p class="pub-authors">Burger R.P., Burger R., Rossouw L.</p>
+          <p class="pub-journal">Development Southern Africa, 29(5), 738–755</p>
+        </div>
+      </div>
+
+    </div>
+    <p style="margin-top:1.8rem; font-size:0.88rem; color:var(--muted);">
+      For a full list of publications and working papers, see
+      <a href="https://scholar.google.com/citations?user=vyGCfDoAAAAJ&hl=en" target="_blank" style="color:var(--sage);">Google Scholar</a>
+      or <a href="https://ideas.repec.org/e/pbu98.html" target="_blank" style="color:var(--sage);">IDEAS/RePEc</a>.
+    </p>
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section id="teaching">
+  <div class="section-inner">
+    <p class="section-label">Courses</p>
+    <h2 class="section-title">Teaching</h2>
+    <div class="teaching-grid">
+      <div class="teaching-card">
+        <span class="level-tag level-grad">Honours / Masters</span>
+        <h4>Microeconomics</h4>
+      </div>
+      <div class="teaching-card">
+        <span class="level-tag level-grad">Graduate</span>
+        <h4>Advanced Econometrics</h4>
+      </div>
+      <div class="teaching-card">
+        <span class="level-tag level-grad">Graduate</span>
+        <h4>Programme Evaluation &amp; Non-parametric Estimation</h4>
+      </div>
+      <div class="teaching-card">
+        <span class="level-tag level-grad">Graduate</span>
+        <h4>Game Theory &amp; Behavioural Economics</h4>
+      </div>
+      <div class="teaching-card">
+        <span class="level-tag level-under">3rd Year / Graduate</span>
+        <h4>Labour Economics</h4>
+      </div>
+      <div class="teaching-card">
+        <span class="level-tag level-under">Graduate &amp; Undergraduate</span>
+        <h4>Development Economics</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label">Get in Touch</p>
+    <h2 class="section-title">Contact &amp; <em>Affiliations</em></h2>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">
+          I welcome inquiries from prospective postgraduate students, research collaborators,
+          and organisations interested in applied economic analysis or predictive analytics.
+        </p>
+
+        <div class="contact-detail">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div>
+            <div class="cd-label">Email</div>
+            <div class="cd-value"><a href="mailto:rulof@sun.ac.za">rulof@sun.ac.za</a></div>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
+          <div>
+            <div class="cd-label">Phone</div>
+            <div class="cd-value">+27 (0)21 808 2328</div>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div>
+            <div class="cd-label">Office</div>
+            <div class="cd-value">Schumann Building 511, Stellenbosch University</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="affiliations">
+        <div class="affil-item">
+          <h4>Stellenbosch University · ReSEP</h4>
+          <p>Research on Socio-Economic Policy</p>
+        </div>
+        <div class="affil-item">
+          <h4>J-PAL</h4>
+          <p>Abdul Latif Jameel Poverty Action Lab — Affiliated Researcher</p>
+        </div>
+        <div class="affil-item">
+          <h4>University of Oxford · CSAE</h4>
+          <p>Centre for the Study of African Economies — Research Associate</p>
+        </div>
+        <div class="affil-item">
+          <h4>Predictive Insights</h4>
+          <p>Founding Director · <a href="https://predictiveinsights.net" target="_blank" style="color:var(--sage);">predictiveinsights.net ↗</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>
+    © 2025 Rulof P. Burger ·
+    <a href="https://www.ekon.sun.ac.za/staff/burger-rulof" target="_blank">Stellenbosch University</a> ·
+    <a href="https://predictiveinsights.net" target="_blank">Predictive Insights</a>
+  </p>
+</footer>
+
+</body>
+</html>
