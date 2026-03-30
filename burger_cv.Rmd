@@ -1,0 +1,308 @@
+---
+name: Rulof P.
+surname: Burger
+position: "Professor of Economics · D.Phil (Oxon)"
+address: "Department of Economics, CGW Schumann Building, Stellenbosch University, Matieland 7602"
+phone: +27 (0)21 808 2328
+email: "rulof@sun.ac.za"
+www: "rulofburger.github.io"
+github: "rulofburger"
+linkedin: "rulof-burger-11562586"
+googlescholar: "vyGCfDoAAAAJ"
+date: "`r format(Sys.time(), '%B %Y')`"
+headcolor: "3d6b52"
+docname: "Curriculum Vitae"
+output:
+  vitae::awesomecv:
+    page_total: true
+    keep_tex: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(tibble)
+```
+
+# Current Positions
+
+```{r positions}
+tribble(
+  ~role, ~institution, ~dates, ~details,
+  "Professor of Economics", "Stellenbosch University, Department of Economics", "Jul 2021 -- present",
+    "Teaching: Microeconomics (Honours/Masters); Advanced Econometrics (Graduate); Labour Economics (Graduate/3rd year); Development Economics",
+  "Founding Director", "Predictive Insights", "2018 -- present",
+    "Machine learning product design studio providing demand forecasts and predictive analytics (predictiveinsights.co.za)",
+  "Affiliated Professor", "Abdul Latif Jameel Poverty Action Lab (J-PAL), MIT", "2020 -- present",
+    "Affiliated researcher conducting randomised evaluations to inform anti-poverty policy",
+) |>
+  detailed_entries(
+    what  = role,
+    when  = dates,
+    with  = institution,
+    why   = details
+  )
+```
+
+# Previous Positions
+
+```{r prev-positions}
+tribble(
+  ~role, ~institution, ~dates,
+  "Associate Professor", "Stellenbosch University, Department of Economics", "Jul 2015 -- Jun 2021",
+  "Senior Lecturer", "Stellenbosch University, Department of Economics", "2007 -- 2015",
+  "Visiting Scholar", "Harvard University, Department of Economics", "2016",
+  "Research Associate", "Centre for the Study of African Economies, Oxford University", "Ongoing",
+  "Short-term Contract Researcher", "The World Bank, Washington D.C.", "2004, 2008, 2011, 2017, 2021",
+  "Short-term Contract Researcher", "UNU-WIDER and SA National Treasury", "2014",
+  "Short-term Contract Researcher", "Department of Trade and Industry, South Africa", "2006, 2007",
+  "Lecturer", "St Clare's College, Oxford (Economic Principles; International Economics)", "2008 -- 2009",
+  "Tutor", "Mansfield College, Oxford (Undergraduate Labour Economics)", "2009",
+  "Lecturer", "University of Cape Town, Department of Economics", "2003, 2013",
+) |>
+  brief_entries(
+    what = role,
+    when = dates,
+    with = institution
+  )
+```
+
+# NRF Rating
+
+```{r nrf}
+tribble(
+  ~rating, ~dates, ~desc,
+  "C-rated Researcher (Established Researcher)", "2021 -- 2026", "",
+  "Y-rated Researcher (Promising Young Researcher)", "2015 -- 2020", "",
+) |>
+  brief_entries(what = rating, when = dates)
+```
+
+# Education
+
+```{r education}
+tribble(
+  ~degree, ~institution, ~dates, ~details,
+  "D.Phil in Economics", "University of Oxford", "2007 -- 2012",
+    c("Dissertation: Estimating the shape of the South African schooling earnings profile",
+      "Supervisor: Francis Teal; Examiners: Steve Bond and Jan Willem Gunning",
+      "Passed coursework with distinction"),
+  "M.Phil in Economics", "University of Cambridge", "2003 -- 2004",
+    c("Passed with distinction",
+      "Awarded Nedbank/Old Mutual Budget Speech Competition Cambridge Scholarship"),
+  "M.Comm in Economics", "Stellenbosch University", "2002 -- 2003",
+    c("Passed with distinction",
+      "Awarded prize for best Master's student in Economics",
+      "Ernst and Ethel Eriksen Scholarship"),
+  "B.Comm (Hons) in Economics", "Stellenbosch University", "2001 -- 2002",
+    c("Passed with distinction",
+      "S.A. Cloete Medal for best post-graduate student in Economics",
+      "Finansies & Tegniek prize for best Honours student in Economics"),
+  "B.Comm in Mathematics", "Stellenbosch University", "1997 -- 2000",
+    c(""),
+) |>
+  detailed_entries(
+    what  = degree,
+    when  = dates,
+    with  = institution,
+    why   = details
+  )
+```
+
+# Publications
+
+## Forthcoming
+
+```{r forthcoming}
+tribble(
+  ~authors, ~title, ~journal,
+  "Abel M. & Burger R.P.", "Name-Based Race Discrimination: The Role of Heuristics", "Review of Economics and Statistics",
+  "Abel M. & Burger R.P.", "Choice Over Payment Schemes and Worker Effort", "Experimental Economics",
+) |>
+  detailed_entries(
+    what = title,
+    with = authors,
+    where = journal
+  )
+```
+
+## Journal Articles
+
+```{r journal-articles}
+tribble(
+  ~authors, ~year, ~title, ~journal,
+  "Khan Z., Patel L., Graham L., Burger R.P., Chowa G.A. & Masa R.", "2024",
+    "Youth Employability Programmes in South Africa: Which Features Work Best and for Whom?",
+    "Development Southern Africa, 41(1), 207--224",
+  "Botha B., Burger R.P., Kotzé K., Rankin N. & Steenkamp D.", "2023",
+    "Big Data Forecasting of South African Inflation",
+    "Empirical Economics, 65, 149--188",
+  "Rossouw L., Burger R.P. & Burger R.", "2021",
+    "Testing an Incentive-Based and Community Health Worker Package Intervention to Improve Maternal Health and Nutrition Outcomes: A Pilot RCT",
+    "Maternal and Child Health Journal, 25(12), 1913--1922",
+  "Abel M., Burger R.P. & Piraino P.", "2020",
+    "The Value of Reference Letters: Experimental Evidence from South Africa",
+    "American Economic Journal: Applied Economics, 12(3), 40--71",
+  "Abel M., Burger R.P., Carranza E. & Piraino P.", "2019",
+    "Bridging the Intention-Behavior Gap? The Effect of Plan-Making Prompts on Job Search and Employment",
+    "American Economic Journal: Applied Economics, 11(2), 1--19",
+  "Burger R., Burger R.P. & Rossouw L.", "2019",
+    "An Incentive-Based and Community Health Worker Package Intervention to Improve Early Utilization of Antenatal Care",
+    "Maternal and Child Health Journal, 23(5), 633--640",
+  "Burger R.P. & McLaren Z.", "2017",
+    "An Econometric Method for Estimating Population Parameters from Non-Random Samples: An Application to Clinical Case Finding",
+    "Health Economics, 26, 1110--1122",
+  "Burger R.P., Coetzee L.C., Kreuser C.F. & Rankin N.A.", "2017",
+    "Income and Price Elasticities of Demand in South Africa: An Application of the Linear Expenditure System",
+    "South African Journal of Economics, 85(4), 491--514",
+  "Burger R.P. & Teal F.J.", "2015",
+    "The Effect of Schooling on Worker Productivity: Evidence from a South African Industry Panel",
+    "Journal of African Economies, 24(5), 629--644",
+  "Burger R.P., van der Berg S. & von Fintel D.", "2015",
+    "The Unintended Consequences of Education Policies on South African Participation and Unemployment",
+    "South African Journal of Economics, 83(1), 74--100",
+  "Burger R.P. & von Fintel D.", "2014",
+    "Rising Unemployment in a Growing Economy: A Business Cycle, Generational and Life-Cycle Perspective",
+    "Studies in Economics and Econometrics, 38(1), 35--64",
+  "Burger R.P., Burger R. & Rossouw L.", "2012",
+    "The Fertility Transition in South Africa: A Retrospective Panel Data Analysis",
+    "Development Southern Africa, 29(5), 738--755",
+  "Burger R.P. & De Villiers P.", "2005",
+    "The Macroeconomic Impact of HIV/AIDS in South Africa: A Supply-Side Analysis",
+    "Journal for Studies in Economics and Econometrics, 29, 1--14",
+  "Burger R.P. & Woolard I.", "2005",
+    "The State of the Labour Market in South Africa after the First Decade of Democracy",
+    "Journal of Vocational Education and Training, 57(4), 453--476",
+  "Burger R.P. & Yu D.", "2006",
+    "Wage Trends in Post-Apartheid South Africa: Constructing an Earnings Series from Household Survey Data",
+    "Labour Market Frontiers, 8, 1--8",
+) |>
+  detailed_entries(
+    what  = title,
+    when  = year,
+    with  = authors,
+    where = journal
+  )
+```
+
+## Book Chapters
+
+```{r chapters}
+tribble(
+  ~authors, ~year, ~title, ~book,
+  "Burger R.P., Jafta R. & von Fintel D.", "2022",
+    "The Effectiveness of Affirmative Action Policies in South Africa",
+    "Handbook on Economics of Discrimination and Affirmative Action, Springer, Singapore",
+  "Pieters J., Kujundzic A., Burger R. & Gondwe J.", "2021",
+    "Inequality at Risk of Automation? Gender Differences in Routine Tasks Intensity in Developing Country Labor Markets",
+    "Cracking the Future of Work: Automation and Labor Platforms in the Global South",
+  "Burger R.P. & Makaluza N.", "2018",
+    "Job-Seeker Entry into the Two-Tiered Informal Sector in South Africa",
+    "The South African Informal Sector: Creating Jobs, Reducing Poverty. HSRC Press",
+  "Burger R.P. & Jafta R.C.C.", "2012",
+    "Affirmative Action in South Africa: An Empirical Assessment of the Impact on Labour Market Outcomes",
+    "Affirmative Action in Plural Societies. Palgrave Macmillan",
+  "Black P., Jafta R.C.C. & Burger R.P.", "2010",
+    "Black Economic Empowerment",
+    "South Africa: Economy and Policy 1990--2000. Manchester University Press",
+  "Von Fintel D.P. & Burger R.P.", "2009",
+    "The South African Labour Market in the Global Financial Crisis: Recovering Lost Gains",
+    "Economic Transformation Audit 2009. African Minds / IJR",
+  "Burger R., Burger R.P. & Du Plessis S.", "2007",
+    "Assessing NEPAD as a Growth Strategy: A Bayesian Averaging of Classical Estimates Approach",
+    "NEPAD and the Future of Economic Policy in Africa. Africa World Press",
+) |>
+  detailed_entries(
+    what  = title,
+    when  = year,
+    with  = authors,
+    where = book
+  )
+```
+
+# Research Funding
+
+```{r funding}
+tribble(
+  ~year, ~funder, ~project, ~role,
+  "2022", "World Bank",
+    "Measurement Error and Dynamics of Wellbeing: Better Data and Methods for Tracking Global Poverty", "Principal Investigator",
+  "2019", "IDRC",
+    "Future of Work in the Global South", "Principal Investigator",
+  "2015", "UNU-WIDER",
+    "Affirmative Action in South Africa", "Principal Investigator",
+  "2014", "World Bank",
+    "Randomised Control Trial: Skill Certification and Job Counselling", "Principal Investigator",
+  "2014", "PSPPD II (National Presidency / EU)",
+    "Randomised Control Trial: Job Counselling, Productivity Signals and Employment", "Principal Investigator",
+  "2014", "Broadreach Healthcare & J-PAL Africa",
+    "Pilot Study: Thula Baba Box Maternal and Infant Health Intervention", "Principal Investigator",
+  "2014", "REDI (Research on Employment, Income Distribution and Inclusive Growth)",
+    "South African Unemployment and Employment", "Team Leader",
+  "2013", "Stellenbosch University Elite Research Grant",
+    "Causal Effect of Schooling Investment on Worker Productivity", "Principal Investigator",
+  "2012", "J-PAL Africa (CALIE)",
+    "Pilot Study: Job Counselling, Productivity Signals and Employment", "Principal Investigator",
+) |>
+  detailed_entries(
+    what  = project,
+    when  = year,
+    with  = funder,
+    why   = role
+  )
+```
+
+# Awards & Honours
+
+```{r awards}
+tribble(
+  ~year, ~award,
+  "2021--26", "NRF C-rated Researcher (Established Researcher)",
+  "2015--20", "NRF Y-rated Researcher (Promising Young Researcher)",
+  "2015", "HB & MJ Thom Award for Sabbatical Study",
+  "2015", "Oppenheimer Memorial Trust Award for Sabbatical Study",
+  "2012--15", "Rector's Award, Stellenbosch University",
+  "2006--07", "Nominated for Golden Key Best Lecturer Award, Stellenbosch University",
+  "2003--06", "Departmental Teaching Award, Stellenbosch University",
+  "2003", "Prize for Best Master's Student in Economics, Stellenbosch University",
+  "2002", "Nedbank/Old Mutual Budget Speech Competition Cambridge Scholarship",
+  "2002", "Ernst and Ethel Eriksen Scholarship for Master's Studies",
+  "2002", "S.A. Cloete Medal for Best Post-Graduate Student in Economics",
+  "2002", "Finansies & Tegniek Prize for Best Honours Student in Economics",
+  "1997, 2001--2", "Merit Bursaries, Stellenbosch University",
+) |>
+  brief_entries(what = award, when = year)
+```
+
+# PhD Students Supervised
+
+```{r phd-students}
+tribble(
+  ~name, ~year, ~status,
+  "Dieter von Fintel", "2015", "Completed",
+  "Marisa von Fintel", "2015", "Completed",
+  "Hendrik van Broekhuizen", "2016", "Completed",
+  "Asmus Zoch", "2017", "Completed",
+  "Kholekile Malindi", "2019", "Completed",
+  "Nwabisa Makaluza", "2019", "Completed",
+  "Joel Gondwe", "2020", "Completed",
+  "Melt van Schoor", "2025", "Completed",
+  "Michael Kilumelume", "Ongoing", "Current",
+) |>
+  brief_entries(what = name, when = year, with = status)
+```
+
+# Professional Activities
+
+```{r prof-activities}
+tribble(
+  ~what, ~details,
+  "Memberships",
+    "American Economic Association; Economic Society of South Africa; African Finance and Economics Association",
+  "Convener",
+    "2024 Nobel Symposium on Microdevelopment Research in the Last 20 Years",
+  "Referee",
+    "American Economic Review; Quarterly Journal of Economics; Oxford Bulletin of Economics and Statistics; World Development; Journal of Development Studies; Empirical Economics; Journal of International Development; Journal of Economic Inequality; Journal of African Economies; South African Journal of Economics; African Review of Economics and Finance; Journal for the Studies in Economics and Econometrics; South African Journal of Economic & Management Sciences; Acta Academica",
+) |>
+  brief_entries(what = what, with = details)
+```

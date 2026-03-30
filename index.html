@@ -43,21 +43,36 @@
       font-weight: 600; font-size: 1.15rem;
       color: var(--navy); text-decoration: none; letter-spacing: 0.02em;
     }
-    nav ul { list-style: none; display: flex; gap: 2.2rem; }
+    nav ul { list-style: none; display: flex; gap: 2rem; flex-wrap: wrap; }
     nav ul li a {
       text-decoration: none; color: var(--muted);
-      font-size: 0.82rem; font-weight: 500;
+      font-size: 0.8rem; font-weight: 500;
       letter-spacing: 0.08em; text-transform: uppercase;
       transition: color 0.2s;
     }
     nav ul li a:hover { color: var(--sage); }
+
+    /* ── NOBEL BANNER ── */
+    .nobel-banner {
+      position: fixed; top: 58px; left: 0; right: 0; z-index: 99;
+      background: var(--navy);
+      padding: 0.55rem 3rem;
+    }
+    .nobel-inner {
+      max-width: 1060px; margin: 0 auto;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .nobel-icon { color: var(--gold); font-size: 0.8rem; flex-shrink: 0; }
+    .nobel-text { font-size: 0.82rem; color: rgba(255,255,255,0.9); }
+    .nobel-text strong { color: var(--gold); font-weight: 500; }
+    .nobel-text em { font-style: italic; color: rgba(255,255,255,0.75); }
 
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
       display: grid; grid-template-columns: 1fr 1fr;
       align-items: center;
-      padding: 6rem 3rem 3rem;
+      padding: 8rem 3rem 3rem;
       gap: 4rem;
       position: relative; overflow: hidden;
     }
@@ -102,13 +117,9 @@
       letter-spacing: 0.06em; text-transform: uppercase;
       text-decoration: none; transition: all 0.2s;
     }
-    .btn-primary {
-      background: var(--navy); color: var(--white);
-    }
+    .btn-primary { background: var(--navy); color: var(--white); }
     .btn-primary:hover { background: var(--sage); }
-    .btn-outline {
-      border: 1.5px solid var(--navy); color: var(--navy);
-    }
+    .btn-outline { border: 1.5px solid var(--navy); color: var(--navy); }
     .btn-outline:hover { background: var(--navy); color: var(--white); }
 
     .hero-card {
@@ -177,38 +188,71 @@
     .research-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
 
     /* ── PUBLICATIONS ── */
-    .pub-list { display: flex; flex-direction: column; gap: 1.6rem; }
+    .pub-filter { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .filter-btn {
+      padding: 0.35rem 0.9rem; border-radius: 2px; border: 1.5px solid var(--light);
+      background: transparent; cursor: pointer; font-size: 0.78rem;
+      font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
+      color: var(--muted); transition: all 0.2s; font-family: 'DM Sans', sans-serif;
+    }
+    .filter-btn.active, .filter-btn:hover { background: var(--navy); color: white; border-color: var(--navy); }
+    .pub-list { display: flex; flex-direction: column; gap: 1.4rem; }
     .pub-item {
       display: grid; grid-template-columns: 48px 1fr;
       gap: 1.2rem; align-items: start;
-      padding: 1.6rem;
+      padding: 1.4rem 1.6rem;
       background: var(--cream);
       border: 1px solid var(--light);
       border-radius: 3px;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
     .pub-item:hover { border-color: var(--sage); box-shadow: 0 4px 20px rgba(61,107,82,0.08); }
+    .pub-item.hidden { display: none; }
     .pub-year {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem; font-weight: 300;
+      font-size: 1.4rem; font-weight: 300;
       color: var(--gold); line-height: 1.2;
       text-align: center; padding-top: 2px;
     }
     .pub-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.08rem; font-weight: 600;
+      font-size: 1.05rem; font-weight: 600;
       color: var(--navy); margin-bottom: 0.3rem; line-height: 1.4;
     }
     .pub-authors { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.2rem; }
     .pub-journal { font-size: 0.85rem; color: var(--sage); font-style: italic; }
+    .pub-tag {
+      display: inline-block; font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.15rem 0.5rem; border-radius: 2px;
+      margin-top: 0.4rem;
+    }
+    .tag-forthcoming { background: #fef3c7; color: #92400e; }
+    .tag-journal { background: #d1fae5; color: #065f46; }
+    .tag-chapter { background: #e0e7ff; color: #3730a3; }
+
+    /* ── EDUCATION ── */
+    .edu-list { display: flex; flex-direction: column; gap: 1.2rem; }
+    .edu-item {
+      display: grid; grid-template-columns: 120px 1fr;
+      gap: 1.5rem; align-items: start;
+      padding: 1.4rem 1.6rem;
+      background: var(--cream); border: 1px solid var(--light); border-radius: 3px;
+    }
+    .edu-year { font-size: 0.82rem; color: var(--muted); font-weight: 500; padding-top: 3px; }
+    .edu-degree {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.15rem;
+    }
+    .edu-inst { font-size: 0.88rem; color: var(--sage); margin-bottom: 0.2rem; }
+    .edu-note { font-size: 0.82rem; color: var(--muted); }
 
     /* ── TEACHING ── */
     .teaching-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
     .teaching-card {
       background: var(--white);
       border: 1px solid var(--light);
-      padding: 1.5rem;
-      border-radius: 3px;
+      padding: 1.5rem; border-radius: 3px;
     }
     .level-tag {
       display: inline-block; font-size: 0.68rem;
@@ -223,11 +267,32 @@
       font-size: 1.1rem; font-weight: 600; color: var(--navy);
     }
 
+    /* ── STUDENTS ── */
+    .students-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .student-card {
+      padding: 1rem 1.2rem;
+      background: var(--cream); border: 1px solid var(--light); border-radius: 3px;
+      display: flex; align-items: center; gap: 0.7rem;
+    }
+    .student-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .dot-complete { background: var(--sage); }
+    .dot-ongoing  { background: var(--gold); }
+    .student-name { font-size: 0.9rem; font-weight: 500; color: var(--navy); }
+    .student-year { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── AWARDS ── */
+    .awards-list { display: flex; flex-direction: column; gap: 0.8rem; }
+    .award-item {
+      display: flex; gap: 1.2rem; align-items: flex-start;
+      padding: 1rem 1.4rem;
+      background: var(--cream); border: 1px solid var(--light); border-radius: 3px;
+    }
+    .award-year { font-size: 0.8rem; color: var(--gold); font-weight: 500; min-width: 40px; padding-top: 2px; }
+    .award-text { font-size: 0.9rem; color: var(--navy); }
+
     /* ── CONTACT ── */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-    .contact-intro {
-      font-size: 1.05rem; color: #374151; line-height: 1.8; margin-bottom: 2rem;
-    }
+    .contact-intro { font-size: 1.05rem; color: #374151; line-height: 1.8; margin-bottom: 2rem; }
     .contact-detail {
       display: flex; align-items: flex-start; gap: 0.8rem;
       margin-bottom: 1.2rem; font-size: 0.92rem;
@@ -235,8 +300,7 @@
     .contact-detail .icon {
       width: 36px; height: 36px;
       background: var(--sage); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
     .contact-detail .icon svg { width: 16px; height: 16px; fill: white; }
     .contact-detail .cd-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
@@ -246,20 +310,16 @@
     .affiliations { display: flex; flex-direction: column; gap: 1rem; }
     .affil-item {
       padding: 1.2rem 1.4rem;
-      background: var(--cream);
-      border: 1px solid var(--light);
-      border-left: 3px solid var(--gold);
-      border-radius: 2px;
+      background: var(--cream); border: 1px solid var(--light);
+      border-left: 3px solid var(--gold); border-radius: 2px;
     }
     .affil-item h4 { font-size: 0.9rem; font-weight: 500; color: var(--navy); margin-bottom: 0.15rem; }
     .affil-item p { font-size: 0.8rem; color: var(--muted); }
 
     /* ── FOOTER ── */
     footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.55);
-      text-align: center; padding: 2rem 3rem;
-      font-size: 0.8rem;
+      background: var(--navy); color: rgba(255,255,255,0.55);
+      text-align: center; padding: 2rem 3rem; font-size: 0.8rem;
     }
     footer a { color: rgba(255,255,255,0.75); text-decoration: none; }
     footer a:hover { color: white; }
@@ -270,22 +330,24 @@
       to   { opacity: 1; transform: translateY(0); }
     }
     .hero-text > * { opacity: 0; animation: fadeUp 0.7s ease forwards; }
-    .hero-eyebrow    { animation-delay: 0.1s; }
-    .hero-name       { animation-delay: 0.25s; }
-    .hero-title      { animation-delay: 0.35s; }
-    .hero-divider    { animation-delay: 0.4s; }
-    .hero-bio        { animation-delay: 0.5s; }
-    .hero-links      { animation-delay: 0.6s; }
-    .hero-card       { opacity: 0; animation: fadeUp 0.7s ease 0.5s forwards; }
+    .hero-eyebrow  { animation-delay: 0.1s; }
+    .hero-name     { animation-delay: 0.25s; }
+    .hero-title    { animation-delay: 0.35s; }
+    .hero-divider  { animation-delay: 0.4s; }
+    .hero-bio      { animation-delay: 0.5s; }
+    .hero-links    { animation-delay: 0.6s; }
+    .hero-card     { opacity: 0; animation: fadeUp 0.7s ease 0.5s forwards; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      nav ul { gap: 1.2rem; }
+      nav { padding: 1rem 1.2rem; }
+      nav ul { gap: 0.8rem; }
+      nav ul li a { font-size: 0.7rem; }
       .hero { grid-template-columns: 1fr; padding: 5rem 1.5rem 3rem; gap: 2.5rem; min-height: auto; }
       .hero::before { display: none; }
       section { padding: 3.5rem 1.5rem; }
       .contact-grid { grid-template-columns: 1fr; }
+      .edu-item { grid-template-columns: 1fr; gap: 0.3rem; }
     }
   </style>
 </head>
@@ -295,30 +357,39 @@
 <nav>
   <a class="logo" href="#home">Rulof P. Burger</a>
   <ul>
-    <li><a href="#about">About</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#publications">Publications</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#awards">Awards</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
+<!-- NOBEL BANNER -->
+<div class="nobel-banner">
+  <div class="nobel-inner">
+    <span class="nobel-icon">✦</span>
+    <span class="nobel-text">
+      <strong>2024 Nobel Symposium Convener</strong> —
+      Invited to convene the Nobel Symposium on <em>Microdevelopment Research in the Last 20 Years</em>
+    </span>
+  </div>
+</div>
+
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-text">
-    <span class="hero-eyebrow">Professor of Economics</span>
+    <span class="hero-eyebrow">Behavioural Economist · Applied Microeconometrician</span>
     <h1 class="hero-name">Rulof P.<br /><em>Burger</em></h1>
-    <p class="hero-title">
-      <strong>Stellenbosch University</strong> · Department of Economics
-    </p>
-    <p class="hero-title">
-      <strong>Founding Director</strong> · Predictive Insights
-    </p>
+    <p class="hero-title"><strong>Professor of Economics</strong> · Stellenbosch University</p>
+    <p class="hero-title"><strong>Founding Director</strong> · Predictive Insights</p>
+    <p class="hero-title"><strong>Affiliated Professor</strong> · J-PAL (MIT)</p>
     <div class="hero-divider"></div>
     <p class="hero-bio">
-      Micro-econometrician and labour economist using rigorous quantitative methods
-      to understand South African labour markets, poverty, and inequality.
-      Doctoral graduate of Oxford University; J-PAL affiliated researcher.
+      Behavioural economist and applied microeconometrician using randomised field
+      experiments and rigorous quantitative methods to study South African labour markets,
+      poverty, and inequality. D.Phil (Oxford); 1,700+ Google Scholar citations.
     </p>
     <div class="hero-links">
       <a class="btn btn-primary" href="https://scholar.google.com/citations?user=vyGCfDoAAAAJ&hl=en" target="_blank">Google Scholar</a>
@@ -331,11 +402,11 @@
     <h3>Quick Info</h3>
     <div class="info-row">
       <span class="info-label">Position</span>
-      <span class="info-value">Professor, Dept. of Economics</span>
+      <span class="info-value">Professor (since 2021) · Dept. of Economics</span>
     </div>
     <div class="info-row">
       <span class="info-label">Institution</span>
-      <span class="info-value">Stellenbosch University</span>
+      <span class="info-value">Stellenbosch University (2003–present)</span>
     </div>
     <div class="info-row">
       <span class="info-label">Office</span>
@@ -347,11 +418,11 @@
     </div>
     <div class="info-row">
       <span class="info-label">Education</span>
-      <span class="info-value">DPhil (Oxford) · MPhil (Cambridge) · MComm (Stellenbosch)</span>
+      <span class="info-value">D.Phil Oxford · M.Phil Cambridge · M.Comm Stellenbosch</span>
     </div>
     <div class="info-row">
       <span class="info-label">Industry</span>
-      <span class="info-value"><a href="https://predictiveinsights.net" target="_blank">Predictive Insights ↗</a></span>
+      <span class="info-value"><a href="https://www.predictiveinsights.co.za" target="_blank">Predictive Insights ↗</a></span>
     </div>
   </div>
 </section>
@@ -362,25 +433,25 @@
     <p class="section-label">Areas of Focus</p>
     <h2 class="section-title">Research <em>Interests</em></h2>
     <div class="research-grid">
+      <div class="research-card" style="border-left-color:var(--gold)">
+        <h4>Behavioural Economics</h4>
+        <p>Randomised field experiments, behavioural interventions, and the intention–behaviour gap in job search and workplace decisions.</p>
+      </div>
+      <div class="research-card" style="border-left-color:var(--gold)">
+        <h4>Applied Microeconometrics</h4>
+        <p>Programme evaluation, non-parametric estimation, panel data methods, limited dependent variable models, and machine learning.</p>
+      </div>
       <div class="research-card">
         <h4>Labour Economics</h4>
         <p>Employment, wages, unemployment dynamics, and labour market transitions in South Africa.</p>
-      </div>
-      <div class="research-card">
-        <h4>Micro-econometrics</h4>
-        <p>Programme evaluation, non-parametric estimation, panel data methods, and limited dependent variable models.</p>
       </div>
       <div class="research-card">
         <h4>Development Economics</h4>
         <p>Poverty, inequality, social grants, and economic mobility in developing contexts.</p>
       </div>
       <div class="research-card">
-        <h4>Behavioural Economics</h4>
-        <p>Behavioural interventions, field experiments, and the intention–behaviour gap.</p>
-      </div>
-      <div class="research-card">
         <h4>Education Economics</h4>
-        <p>Returns to schooling, teacher quality, and the impact of education policy on the labour market.</p>
+        <p>Returns to schooling, teacher quality, and the unintended consequences of education policy.</p>
       </div>
       <div class="research-card">
         <h4>Predictive Analytics</h4>
@@ -394,58 +465,229 @@
 <section id="publications">
   <div class="section-inner">
     <p class="section-label">Peer-Reviewed Work</p>
-    <h2 class="section-title">Selected <em>Publications</em></h2>
+    <h2 class="section-title">Publications</h2>
+
+    <div class="pub-filter">
+      <button class="filter-btn active" onclick="filterPubs('all', this)">All</button>
+      <button class="filter-btn" onclick="filterPubs('forthcoming', this)">Forthcoming</button>
+      <button class="filter-btn" onclick="filterPubs('journal', this)">Journal Articles</button>
+      <button class="filter-btn" onclick="filterPubs('chapter', this)">Book Chapters</button>
+    </div>
+
     <div class="pub-list">
 
-      <div class="pub-item">
-        <div class="pub-year">2019</div>
+      <div class="pub-item" data-type="forthcoming">
+        <div class="pub-year">FC</div>
         <div>
-          <p class="pub-title">Bridging the Intention-Behavior Gap? The Effect of Plan-Making Prompts on Job Search and Employment</p>
-          <p class="pub-authors">Abel M., Burger R.P., Carranza E., Piraino P.</p>
-          <p class="pub-journal">American Economic Journal: Applied Economics, 11(2), 1–19</p>
+          <p class="pub-title">Name-Based Race Discrimination: The Role of Heuristics</p>
+          <p class="pub-authors">Abel M. &amp; Burger R.P.</p>
+          <p class="pub-journal">Review of Economics and Statistics</p>
+          <span class="pub-tag tag-forthcoming">Forthcoming</span>
         </div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="forthcoming">
+        <div class="pub-year">FC</div>
+        <div>
+          <p class="pub-title">Choice Over Payment Schemes and Worker Effort</p>
+          <p class="pub-authors">Abel M. &amp; Burger R.P.</p>
+          <p class="pub-journal">Experimental Economics</p>
+          <span class="pub-tag tag-forthcoming">Forthcoming</span>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <div class="pub-year">2024</div>
+        <div>
+          <p class="pub-title">Youth Employability Programmes in South Africa: Which Features Work Best and for Whom?</p>
+          <p class="pub-authors">Khan Z., Patel L., Graham L., Burger R.P., Chowa G.A. &amp; Masa R.</p>
+          <p class="pub-journal">Development Southern Africa, 41(1), 207–224</p>
+          <span class="pub-tag tag-journal">Journal Article</span>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <div class="pub-year">2023</div>
+        <div>
+          <p class="pub-title">Big Data Forecasting of South African Inflation</p>
+          <p class="pub-authors">Botha B., Burger R.P., Kotzé K., Rankin N. &amp; Steenkamp D.</p>
+          <p class="pub-journal">Empirical Economics, 65, 149–188</p>
+          <span class="pub-tag tag-journal">Journal Article</span>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="chapter">
+        <div class="pub-year">2022</div>
+        <div>
+          <p class="pub-title">The Effectiveness of Affirmative Action Policies in South Africa</p>
+          <p class="pub-authors">Burger R.P., Jafta R., von Fintel D.</p>
+          <p class="pub-journal">Handbook on Economics of Discrimination and Affirmative Action, Springer</p>
+          <span class="pub-tag tag-chapter">Book Chapter</span>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <div class="pub-year">2021</div>
+        <div>
+          <p class="pub-title">Testing an Incentive-Based and Community Health Worker Package Intervention to Improve Maternal Health and Nutrition Outcomes</p>
+          <p class="pub-authors">Rossouw L., Burger R.P. &amp; Burger R.</p>
+          <p class="pub-journal">Maternal and Child Health Journal, 25(12), 1913–1922</p>
+          <span class="pub-tag tag-journal">Journal Article</span>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <div class="pub-year">2020</div>
+        <div>
+          <p class="pub-title">The Value of Reference Letters: Experimental Evidence from South Africa</p>
+          <p class="pub-authors">Abel M., Burger R.P. &amp; Piraino P.</p>
+          <p class="pub-journal">American Economic Journal: Applied Economics, 12(3), 40–71</p>
+          <span class="pub-tag tag-journal">Journal Article</span>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <div class="pub-year">2019</div>
+        <div>
+          <p class="pub-title">Bridging the Intention-Behavior Gap? The Effect of Plan-Making Prompts on Job Search and Employment</p>
+          <p class="pub-authors">Abel M., Burger R.P., Carranza E. &amp; Piraino P.</p>
+          <p class="pub-journal">American Economic Journal: Applied Economics, 11(2), 1–19</p>
+          <span class="pub-tag tag-journal">Journal Article</span>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <div class="pub-year">2019</div>
+        <div>
+          <p class="pub-title">An Incentive-Based and Community Health Worker Package Intervention to Improve Early Utilization of Antenatal Care</p>
+          <p class="pub-authors">Burger R., Burger R.P. &amp; Rossouw L.</p>
+          <p class="pub-journal">Maternal and Child Health Journal, 23(5), 633–640</p>
+          <span class="pub-tag tag-journal">Journal Article</span>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <div class="pub-year">2017</div>
+        <div>
+          <p class="pub-title">An Econometric Method for Estimating Population Parameters from Non-Random Samples: An Application to Clinical Case Finding</p>
+          <p class="pub-authors">Burger R.P. &amp; McLaren Z.</p>
+          <p class="pub-journal">Health Economics, 26, 1110–1122</p>
+          <span class="pub-tag tag-journal">Journal Article</span>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <div class="pub-year">2017</div>
+        <div>
+          <p class="pub-title">Income and Price Elasticities of Demand in South Africa: An Application of the Linear Expenditure System</p>
+          <p class="pub-authors">Burger R.P., Coetzee L.C., Kreuser C.F. &amp; Rankin N.A.</p>
+          <p class="pub-journal">South African Journal of Economics, 85(4), 491–514</p>
+          <span class="pub-tag tag-journal">Journal Article</span>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="journal">
         <div class="pub-year">2015</div>
         <div>
           <p class="pub-title">The Effect of Schooling on Worker Productivity: Evidence from a South African Industry Panel</p>
           <p class="pub-authors">Burger R.P. &amp; Teal F.J.</p>
           <p class="pub-journal">Journal of African Economies, 24(5), 629–644</p>
+          <span class="pub-tag tag-journal">Journal Article</span>
         </div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="journal">
         <div class="pub-year">2015</div>
         <div>
           <p class="pub-title">The Unintended Consequences of Education Policies on South African Participation and Unemployment</p>
-          <p class="pub-authors">Burger R., van der Berg S., von Fintel D.</p>
+          <p class="pub-authors">Burger R., van der Berg S. &amp; von Fintel D.</p>
           <p class="pub-journal">South African Journal of Economics, 83(1), 74–100</p>
+          <span class="pub-tag tag-journal">Journal Article</span>
         </div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="journal">
+        <div class="pub-year">2014</div>
+        <div>
+          <p class="pub-title">Rising Unemployment in a Growing Economy: A Business Cycle, Generational and Life-Cycle Perspective</p>
+          <p class="pub-authors">Burger R.P. &amp; von Fintel D.</p>
+          <p class="pub-journal">Studies in Economics and Econometrics, 38(1), 35–64</p>
+          <span class="pub-tag tag-journal">Journal Article</span>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="journal">
         <div class="pub-year">2012</div>
         <div>
           <p class="pub-title">The Fertility Transition in South Africa: A Retrospective Panel Data Analysis</p>
-          <p class="pub-authors">Burger R.P., Burger R., Rossouw L.</p>
+          <p class="pub-authors">Burger R.P., Burger R. &amp; Rossouw L.</p>
           <p class="pub-journal">Development Southern Africa, 29(5), 738–755</p>
+          <span class="pub-tag tag-journal">Journal Article</span>
         </div>
       </div>
 
     </div>
     <p style="margin-top:1.8rem; font-size:0.88rem; color:var(--muted);">
-      For a full list of publications and working papers, see
-      <a href="https://scholar.google.com/citations?user=vyGCfDoAAAAJ&hl=en" target="_blank" style="color:var(--sage);">Google Scholar</a>
-      or <a href="https://ideas.repec.org/e/pbu98.html" target="_blank" style="color:var(--sage);">IDEAS/RePEc</a>.
+      Full list of publications and working papers:
+      <a href="https://scholar.google.com/citations?user=vyGCfDoAAAAJ&hl=en" target="_blank" style="color:var(--sage);">Google Scholar</a> ·
+      <a href="https://ideas.repec.org/e/pbu98.html" target="_blank" style="color:var(--sage);">IDEAS/RePec</a>
     </p>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner">
+    <p class="section-label">Academic Training</p>
+    <h2 class="section-title"><em>Education</em></h2>
+    <div class="edu-list">
+      <div class="edu-item">
+        <div class="edu-year">2007–2012</div>
+        <div>
+          <p class="edu-degree">D.Phil in Economics</p>
+          <p class="edu-inst">University of Oxford (Mansfield College)</p>
+          <p class="edu-note">Dissertation: Estimating the shape of the South African schooling earnings profile · Supervisor: Francis Teal · Passed coursework with distinction</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2003–2004</div>
+        <div>
+          <p class="edu-degree">M.Phil in Economics</p>
+          <p class="edu-inst">University of Cambridge</p>
+          <p class="edu-note">Passed with distinction · Awarded Nedbank/Old Mutual Budget Speech Competition Cambridge Scholarship</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2002–2003</div>
+        <div>
+          <p class="edu-degree">M.Comm in Economics</p>
+          <p class="edu-inst">Stellenbosch University</p>
+          <p class="edu-note">Passed with distinction · Best Master's student in Economics · Ernst and Ethel Eriksen Scholarship</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2001–2002</div>
+        <div>
+          <p class="edu-degree">B.Comm (Hons) in Economics</p>
+          <p class="edu-inst">Stellenbosch University</p>
+          <p class="edu-note">Passed with distinction · S.A. Cloete Medal for best post-graduate student in Economics · Finansies &amp; Tegniek prize for best Honours student</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">1997–2000</div>
+        <div>
+          <p class="edu-degree">B.Comm in Mathematics</p>
+          <p class="edu-inst">Stellenbosch University</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- TEACHING -->
 <section id="teaching">
   <div class="section-inner">
-    <p class="section-label">Courses</p>
+    <p class="section-label">Courses at Stellenbosch University</p>
     <h2 class="section-title">Teaching</h2>
     <div class="teaching-grid">
       <div class="teaching-card">
@@ -473,6 +715,62 @@
         <h4>Development Economics</h4>
       </div>
     </div>
+
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;margin:3rem 0 1.5rem;color:var(--navy);">PhD Students Supervised</h3>
+    <div class="students-grid">
+      <div class="student-card"><div class="student-dot dot-complete"></div><div><div class="student-name">Dieter von Fintel</div><div class="student-year">Completed 2015</div></div></div>
+      <div class="student-card"><div class="student-dot dot-complete"></div><div><div class="student-name">Marisa von Fintel</div><div class="student-year">Completed 2015</div></div></div>
+      <div class="student-card"><div class="student-dot dot-complete"></div><div><div class="student-name">Hendrik van Broekhuizen</div><div class="student-year">Completed 2016</div></div></div>
+      <div class="student-card"><div class="student-dot dot-complete"></div><div><div class="student-name">Asmus Zoch</div><div class="student-year">Completed 2017</div></div></div>
+      <div class="student-card"><div class="student-dot dot-complete"></div><div><div class="student-name">Kholekile Malindi</div><div class="student-year">Completed 2019</div></div></div>
+      <div class="student-card"><div class="student-dot dot-complete"></div><div><div class="student-name">Nwabisa Makaluza</div><div class="student-year">Completed 2019</div></div></div>
+      <div class="student-card"><div class="student-dot dot-complete"></div><div><div class="student-name">Joel Gondwe</div><div class="student-year">Completed 2020</div></div></div>
+      <div class="student-card"><div class="student-dot dot-complete"></div><div><div class="student-name">Melt van Schoor</div><div class="student-year">Completed 2025</div></div></div>
+      <div class="student-card"><div class="student-dot dot-ongoing"></div><div><div class="student-name">Michael Kilumelume</div><div class="student-year">Ongoing</div></div></div>
+    </div>
+    <p style="font-size:0.78rem;color:var(--muted);margin-top:1rem;">
+      <span style="display:inline-flex;align-items:center;gap:0.4rem;margin-right:1.2rem;"><span style="width:8px;height:8px;border-radius:50%;background:var(--sage);display:inline-block;"></span> Completed</span>
+      <span style="display:inline-flex;align-items:center;gap:0.4rem;"><span style="width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block;"></span> Ongoing</span>
+    </p>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="section-inner">
+    <p class="section-label">Recognition</p>
+    <h2 class="section-title">Awards &amp; <em>Funding</em></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;">
+      <div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;margin-bottom:1.5rem;color:var(--navy);">Honours &amp; Awards</h3>
+        <div class="awards-list">
+          <div class="award-item"><span class="award-year">2021</span><span class="award-text">NRF C-rating (Established Researcher)</span></div>
+          <div class="award-item"><span class="award-year">2015</span><span class="award-text">HB &amp; MJ Thom Award for sabbatical study</span></div>
+          <div class="award-item"><span class="award-year">2015</span><span class="award-text">Oppenheimer Memorial Trust Award</span></div>
+          <div class="award-item"><span class="award-year">2015</span><span class="award-text">NRF Y-rating (Promising Young Researcher)</span></div>
+          <div class="award-item"><span class="award-year">2012–15</span><span class="award-text">Rector's Award, Stellenbosch University</span></div>
+          <div class="award-item"><span class="award-year">2006–07</span><span class="award-text">Nominated, Golden Key Best Lecturer Award</span></div>
+          <div class="award-item"><span class="award-year">2003–06</span><span class="award-text">Departmental Teaching Award</span></div>
+          <div class="award-item"><span class="award-year">2003</span><span class="award-text">Best Master's Student in Economics, Stellenbosch</span></div>
+          <div class="award-item"><span class="award-year">2002</span><span class="award-text">Cambridge Scholarship (Nedbank/Old Mutual)</span></div>
+          <div class="award-item"><span class="award-year">2002</span><span class="award-text">S.A. Cloete Medal, Best Post-Graduate in Economics</span></div>
+          <div class="award-item"><span class="award-year">2002</span><span class="award-text">Finansies &amp; Tegniek prize, Best Honours student</span></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;margin-bottom:1.5rem;color:var(--navy);">Selected Research Funding</h3>
+        <div class="awards-list">
+          <div class="award-item"><span class="award-year">2022</span><span class="award-text">World Bank — Measurement Error and Dynamics of Wellbeing (PI)</span></div>
+          <div class="award-item"><span class="award-year">2019</span><span class="award-text">IDRC — Future of Work in the Global South (PI)</span></div>
+          <div class="award-item"><span class="award-year">2015</span><span class="award-text">UNU-WIDER — Affirmative Action in South Africa (PI)</span></div>
+          <div class="award-item"><span class="award-year">2014</span><span class="award-text">World Bank — Skill Certification and Job Counselling RCT (PI)</span></div>
+          <div class="award-item"><span class="award-year">2014</span><span class="award-text">PSPPD II (EU/Presidency) — Job Counselling RCT (PI)</span></div>
+          <div class="award-item"><span class="award-year">2014</span><span class="award-text">J-PAL Africa &amp; Broadreach — Thula Baba Box health intervention (PI)</span></div>
+          <div class="award-item"><span class="award-year">2014</span><span class="award-text">REDI Team Grant — South African unemployment (Team Leader)</span></div>
+          <div class="award-item"><span class="award-year">2013</span><span class="award-text">Stellenbosch University Elite Research Grant (PI)</span></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -487,54 +785,39 @@
           I welcome inquiries from prospective postgraduate students, research collaborators,
           and organisations interested in applied economic analysis or predictive analytics.
         </p>
-
         <div class="contact-detail">
-          <div class="icon">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          </div>
-          <div>
-            <div class="cd-label">Email</div>
-            <div class="cd-value"><a href="mailto:rulof@sun.ac.za">rulof@sun.ac.za</a></div>
-          </div>
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+          <div><div class="cd-label">Email</div><div class="cd-value"><a href="mailto:rulof@sun.ac.za">rulof@sun.ac.za</a></div></div>
         </div>
-
         <div class="contact-detail">
-          <div class="icon">
-            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          </div>
-          <div>
-            <div class="cd-label">Phone</div>
-            <div class="cd-value">+27 (0)21 808 2328</div>
-          </div>
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+          <div><div class="cd-label">Phone</div><div class="cd-value">+27 (0)21 808 2328</div></div>
         </div>
-
         <div class="contact-detail">
-          <div class="icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          </div>
-          <div>
-            <div class="cd-label">Office</div>
-            <div class="cd-value">Schumann Building 511, Stellenbosch University</div>
-          </div>
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+          <div><div class="cd-label">Office</div><div class="cd-value">Schumann Building 511, Stellenbosch University</div></div>
         </div>
       </div>
-
       <div class="affiliations">
         <div class="affil-item">
           <h4>Stellenbosch University · ReSEP</h4>
-          <p>Research on Socio-Economic Policy</p>
+          <p>Research on Socio-Economic Policy (2003–present)</p>
         </div>
         <div class="affil-item">
-          <h4>J-PAL</h4>
-          <p>Abdul Latif Jameel Poverty Action Lab — Affiliated Researcher</p>
+          <h4>J-PAL — Abdul Latif Jameel Poverty Action Lab</h4>
+          <p>Affiliated Professor (2020–present)</p>
         </div>
         <div class="affil-item">
           <h4>University of Oxford · CSAE</h4>
           <p>Centre for the Study of African Economies — Research Associate</p>
         </div>
         <div class="affil-item">
+          <h4>Harvard University</h4>
+          <p>Visiting Scholar, Department of Economics (2016)</p>
+        </div>
+        <div class="affil-item">
           <h4>Predictive Insights</h4>
-          <p>Founding Director · <a href="https://predictiveinsights.net" target="_blank" style="color:var(--sage);">predictiveinsights.net ↗</a></p>
+          <p>Founding Director (2018–present) · <a href="https://www.predictiveinsights.co.za" target="_blank" style="color:var(--sage);">predictiveinsights.co.za ↗</a></p>
         </div>
       </div>
     </div>
@@ -545,9 +828,23 @@
   <p>
     © 2025 Rulof P. Burger ·
     <a href="https://www.ekon.sun.ac.za/staff/burger-rulof" target="_blank">Stellenbosch University</a> ·
-    <a href="https://predictiveinsights.net" target="_blank">Predictive Insights</a>
+    <a href="https://www.predictiveinsights.co.za" target="_blank">Predictive Insights</a>
   </p>
 </footer>
+
+<script>
+  function filterPubs(type, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.pub-item').forEach(item => {
+      if (type === 'all' || item.dataset.type === type) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+  }
+</script>
 
 </body>
 </html>
