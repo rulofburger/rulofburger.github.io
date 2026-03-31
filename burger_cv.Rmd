@@ -1,16 +1,15 @@
 ---
 name: Rulof P.
 surname: Burger
-position: "Professor of Economics · D.Phil (Oxon)"
+position: "Professor of Economics | D.Phil (Oxon) | Behavioural Economist & Applied Microeconometrician"
 address: "Department of Economics, CGW Schumann Building, Stellenbosch University, Matieland 7602"
 phone: +27 (0)21 808 2328
 email: "rulof@sun.ac.za"
 www: "rulofburger.github.io"
 github: "rulofburger"
 linkedin: "rulof-burger-11562586"
-googlescholar: "vyGCfDoAAAAJ"
 date: "`r format(Sys.time(), '%B %Y')`"
-headcolor: "3d6b52"
+headcolor: "1c2b40"
 docname: "Curriculum Vitae"
 output:
   vitae::awesomecv:
@@ -37,9 +36,9 @@ tribble(
     "Affiliated researcher conducting randomised evaluations to inform anti-poverty policy",
 ) |>
   detailed_entries(
-    what  = role,
+    what  = institution,
     when  = dates,
-    with  = institution,
+    with  = role,
     why   = details
   )
 ```
@@ -55,14 +54,14 @@ tribble(
   "Short-term Contract Researcher", "The World Bank, Washington D.C.", "2004, 2008, 2011, 2017, 2021",
   "Short-term Contract Researcher", "UNU-WIDER and SA National Treasury", "2014",
   "Short-term Contract Researcher", "Department of Trade and Industry, South Africa", "2006, 2007",
-  "Lecturer", "St Clare's College, Oxford (Economic Principles; International Economics)", "2008 -- 2009",
-  "Tutor", "Mansfield College, Oxford (Undergraduate Labour Economics)", "2009",
+  "Lecturer", "St Clare's College, Oxford", "2008 -- 2009",
+  "Tutor (Undergraduate Labour Economics)", "Mansfield College, Oxford", "2009",
   "Lecturer", "University of Cape Town, Department of Economics", "2003, 2013",
 ) |>
   detailed_entries(
-    what  = role,
+    what  = institution,
     when  = dates,
-    with  = institution
+    with  = role
   )
 ```
 
@@ -97,8 +96,6 @@ tribble(
     c("Passed with distinction",
       "S.A. Cloete Medal for best post-graduate student in Economics",
       "Finansies & Tegniek prize for best Honours student in Economics"),
-  "B.Comm in Mathematics", "Stellenbosch University", "1997 -- 2000",
-    c(""),
 ) |>
   detailed_entries(
     what  = degree,
@@ -106,6 +103,12 @@ tribble(
     with  = institution,
     why   = details
   )
+
+tribble(
+  ~degree, ~institution, ~dates,
+  "B.Comm in Mathematics", "Stellenbosch University", "1997 -- 2000",
+) |>
+  detailed_entries(what = degree, when = dates, with = institution)
 ```
 
 # Publications
@@ -121,7 +124,7 @@ tribble(
   detailed_entries(
     what = title,
     with = authors,
-    where = journal
+    why  = journal
   )
 ```
 
@@ -180,7 +183,7 @@ tribble(
     what  = title,
     when  = year,
     with  = authors,
-    where = journal
+    why   = journal
   )
 ```
 
@@ -215,7 +218,7 @@ tribble(
     what  = title,
     when  = year,
     with  = authors,
-    where = book
+    why   = book
   )
 ```
 
@@ -273,23 +276,25 @@ tribble(
   brief_entries(what = award, when = year)
 ```
 
+\newpage
+
 # PhD Students Supervised
 
 ```{r phd-students}
 tribble(
-  ~name, ~year, ~status,
-  "Dieter von Fintel",      "2015",    "Completed",
-  "Marisa von Fintel",      "2015",    "Completed",
-  "Hendrik van Broekhuizen","2016",    "Completed",
-  "Asmus Zoch",             "2017",    "Completed",
-  "Kholekile Malindi",      "2019",    "Completed",
-  "Nwabisa Makaluza",       "2019",    "Completed",
-  "Joel Gondwe",            "2020",    "Completed",
-  "Melt van Schoor",        "2025",    "Completed",
-  "Michael Kilumelume",     "Ongoing", "Current",
-  "Wawa Nkosi",             "Ongoing", "Current",
+  ~name, ~year, ~note,
+  "Dieter von Fintel",       "2015",    "Completed",
+  "Marisa von Fintel",       "2015",    "Completed",
+  "Hendrik van Broekhuizen", "2016",    "Completed",
+  "Asmus Zoch",              "2017",    "Completed",
+  "Kholekile Malindi",       "2019",    "Completed",
+  "Nwabisa Makaluza",        "2019",    "Completed",
+  "Joel Gondwe",             "2020",    "Completed",
+  "Melt van Schoor",         "2025",    "Completed",
+  "Michael Kilumelume",      "Ongoing", "Current",
+  "Wawa Nkosi",              "Ongoing", "Current",
 ) |>
-  detailed_entries(what = name, when = year, with = status)
+  brief_entries(what = name, when = year, with = note)
 ```
 
 # Professional Activities
@@ -302,7 +307,7 @@ tribble(
   "Convener",
     "2024 Nobel Symposium on Microdevelopment Research in the Last 20 Years",
   "Referee",
-    "American Economic Review; Quarterly Journal of Economics; Oxford Bulletin of Economics and Statistics; World Development; Journal of Development Studies; Empirical Economics; Journal of International Development; Journal of Economic Inequality; Journal of African Economies; South African Journal of Economics; African Review of Economics and Finance; Journal for the Studies in Economics and Econometrics; South African Journal of Economic \\& Management Sciences; Acta Academica",
+    "American Economic Review; Quarterly Journal of Economics; Oxford Bulletin of Economics and Statistics; World Development; Journal of Development Studies; Empirical Economics; Journal of International Development; Journal of Economic Inequality; Journal of African Economies; South African Journal of Economics; African Review of Economics and Finance; Journal for the Studies in Economics and Econometrics; South African Journal of Economic and Management Sciences; Acta Academica",
 ) |>
   detailed_entries(what = what, why = details)
 ```
