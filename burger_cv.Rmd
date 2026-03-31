@@ -52,7 +52,6 @@ tribble(
   "Associate Professor", "Stellenbosch University, Department of Economics", "Jul 2015 -- Jun 2021",
   "Senior Lecturer", "Stellenbosch University, Department of Economics", "2007 -- 2015",
   "Visiting Scholar", "Harvard University, Department of Economics", "2016",
-  "Research Associate", "Centre for the Study of African Economies, Oxford University", "Ongoing",
   "Short-term Contract Researcher", "The World Bank, Washington D.C.", "2004, 2008, 2011, 2017, 2021",
   "Short-term Contract Researcher", "UNU-WIDER and SA National Treasury", "2014",
   "Short-term Contract Researcher", "Department of Trade and Industry, South Africa", "2006, 2007",
@@ -60,10 +59,10 @@ tribble(
   "Tutor", "Mansfield College, Oxford (Undergraduate Labour Economics)", "2009",
   "Lecturer", "University of Cape Town, Department of Economics", "2003, 2013",
 ) |>
-  brief_entries(
-    what = role,
-    when = dates,
-    with = institution
+  detailed_entries(
+    what  = role,
+    when  = dates,
+    with  = institution
   )
 ```
 
@@ -71,11 +70,11 @@ tribble(
 
 ```{r nrf}
 tribble(
-  ~rating, ~dates, ~desc,
-  "C-rated Researcher (Established Researcher)", "2021 -- 2026", "",
-  "Y-rated Researcher (Promising Young Researcher)", "2015 -- 2020", "",
+  ~rating, ~dates,
+  "C-rated Researcher (Established Researcher)", "2021 -- 2026",
+  "Y-rated Researcher (Promising Young Researcher)", "2015 -- 2020",
 ) |>
-  brief_entries(what = rating, when = dates)
+  detailed_entries(what = rating, when = dates)
 ```
 
 # Education
@@ -279,17 +278,18 @@ tribble(
 ```{r phd-students}
 tribble(
   ~name, ~year, ~status,
-  "Dieter von Fintel", "2015", "Completed",
-  "Marisa von Fintel", "2015", "Completed",
-  "Hendrik van Broekhuizen", "2016", "Completed",
-  "Asmus Zoch", "2017", "Completed",
-  "Kholekile Malindi", "2019", "Completed",
-  "Nwabisa Makaluza", "2019", "Completed",
-  "Joel Gondwe", "2020", "Completed",
-  "Melt van Schoor", "2025", "Completed",
-  "Michael Kilumelume", "Ongoing", "Current",
+  "Dieter von Fintel",      "2015",    "Completed",
+  "Marisa von Fintel",      "2015",    "Completed",
+  "Hendrik van Broekhuizen","2016",    "Completed",
+  "Asmus Zoch",             "2017",    "Completed",
+  "Kholekile Malindi",      "2019",    "Completed",
+  "Nwabisa Makaluza",       "2019",    "Completed",
+  "Joel Gondwe",            "2020",    "Completed",
+  "Melt van Schoor",        "2025",    "Completed",
+  "Michael Kilumelume",     "Ongoing", "Current",
+  "Wawa Nkosi",             "Ongoing", "Current",
 ) |>
-  brief_entries(what = name, when = year, with = status)
+  detailed_entries(what = name, when = year, with = status)
 ```
 
 # Professional Activities
@@ -302,7 +302,7 @@ tribble(
   "Convener",
     "2024 Nobel Symposium on Microdevelopment Research in the Last 20 Years",
   "Referee",
-    "American Economic Review; Quarterly Journal of Economics; Oxford Bulletin of Economics and Statistics; World Development; Journal of Development Studies; Empirical Economics; Journal of International Development; Journal of Economic Inequality; Journal of African Economies; South African Journal of Economics; African Review of Economics and Finance; Journal for the Studies in Economics and Econometrics; South African Journal of Economic & Management Sciences; Acta Academica",
+    "American Economic Review; Quarterly Journal of Economics; Oxford Bulletin of Economics and Statistics; World Development; Journal of Development Studies; Empirical Economics; Journal of International Development; Journal of Economic Inequality; Journal of African Economies; South African Journal of Economics; African Review of Economics and Finance; Journal for the Studies in Economics and Econometrics; South African Journal of Economic \\& Management Sciences; Acta Academica",
 ) |>
-  brief_entries(what = what, with = details)
+  detailed_entries(what = what, why = details)
 ```
