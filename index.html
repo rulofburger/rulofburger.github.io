@@ -52,27 +52,62 @@
     }
     nav ul li a:hover { color: var(--sage); }
 
-    /* ── NOBEL BANNER ── */
-    .nobel-banner {
-      position: fixed; top: 58px; left: 0; right: 0; z-index: 99;
+    /* ── NOBEL HIGHLIGHT ── */
+    .nobel-highlight {
       background: var(--navy);
-      padding: 0.55rem 3rem;
+      padding: 3.5rem 3rem;
     }
-    .nobel-inner {
+    .nobel-highlight-inner {
       max-width: 1060px; margin: 0 auto;
-      display: flex; align-items: center; gap: 0.75rem;
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: center; gap: 3rem;
     }
-    .nobel-icon { color: var(--gold); font-size: 0.8rem; flex-shrink: 0; }
-    .nobel-text { font-size: 0.82rem; color: rgba(255,255,255,0.9); }
-    .nobel-text strong { color: var(--gold); font-weight: 500; }
-    .nobel-text em { font-style: italic; color: rgba(255,255,255,0.75); }
+    .nobel-kicker {
+      font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.7rem;
+    }
+    .nobel-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 300; color: var(--white);
+      line-height: 1.25; margin-bottom: 0.8rem;
+    }
+    .nobel-headline em { font-style: italic; color: var(--gold); }
+    .nobel-desc {
+      font-size: 0.9rem; color: rgba(255,255,255,0.65);
+      line-height: 1.7; max-width: 600px;
+    }
+    .nobel-meta {
+      display: flex; flex-direction: column;
+      align-items: flex-end; gap: 0.6rem; flex-shrink: 0;
+    }
+    .nobel-badge {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem; font-weight: 300;
+      color: var(--gold); line-height: 1;
+    }
+    .nobel-badge-label {
+      font-size: 0.72rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.5);
+      text-align: right;
+    }
+    .nobel-link {
+      display: inline-block; margin-top: 1.2rem;
+      font-size: 0.78rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--gold); text-decoration: none;
+      border-bottom: 1px solid rgba(184,149,58,0.4);
+      padding-bottom: 2px; transition: border-color 0.2s;
+    }
+    .nobel-link:hover { border-color: var(--gold); }
 
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
       display: grid; grid-template-columns: 1fr 1fr;
       align-items: center;
-      padding: 8rem 3rem 3rem;
+      padding: 6rem 3rem 3rem;
       gap: 4rem;
       position: relative; overflow: hidden;
     }
@@ -180,6 +215,15 @@
       margin-bottom: 3rem; line-height: 1.2;
     }
     .section-title em { font-style: italic; color: var(--sage); }
+
+    /* ── BIO ── */
+    .bio-text {
+      font-size: 1.05rem; color: #374151;
+      line-height: 1.9; max-width: 780px;
+    }
+    .bio-text p { margin-bottom: 1.4rem; }
+    .bio-text p:last-child { margin-bottom: 0; }
+    .bio-text em { font-style: italic; }
 
     /* ── RESEARCH ── */
     .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
@@ -355,6 +399,8 @@
       nav ul li a { font-size: 0.7rem; }
       .hero { grid-template-columns: 1fr; padding: 5rem 1.5rem 3rem; gap: 2.5rem; min-height: auto; }
       .hero::before { display: none; }
+      .nobel-highlight-inner { grid-template-columns: 1fr; }
+      .nobel-meta { flex-direction: row; align-items: center; }
       section { padding: 3.5rem 1.5rem; }
       .contact-grid { grid-template-columns: 1fr; }
       .edu-item { grid-template-columns: 1fr; gap: 0.3rem; }
@@ -367,6 +413,7 @@
 <nav>
   <a class="logo" href="#home">Rulof P. Burger</a>
   <ul>
+    <li><a href="#about">About</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#publications">Publications</a></li>
     <li><a href="#education">Education</a></li>
@@ -376,18 +423,29 @@
   </ul>
 </nav>
 
-<!-- NOBEL BANNER -->
-<div class="nobel-banner">
-  <div class="nobel-inner">
-    <span class="nobel-icon">✦</span>
-    <span class="nobel-text">
-      <strong>2024 Nobel Symposium Convener</strong> —
-      Invited to convene the Nobel Symposium on <em>Microdevelopment Research in the Last 20 Years</em>
-    </span>
+<!-- NOBEL HIGHLIGHT -->
+<div class="nobel-highlight">
+  <div class="nobel-highlight-inner">
+    <div>
+      <p class="nobel-kicker">Featured · 2024</p>
+      <h2 class="nobel-headline">Co-Convener, <em>Nobel Symposium NS192</em></h2>
+      <p class="nobel-desc">
+        Co-convened (with Jakob Svensson, Stockholm University) an invitation-only Nobel Symposium
+        gathering ~40 of the world's leading development economists — including Nobel laureate
+        Esther Duflo — to take stock of microdevelopment research over the past 20 years.
+        Held at STIAS, Stellenbosch, under the auspices of the Nobel Foundation and the
+        Royal Swedish Academy of Sciences.
+      </p>
+      <a class="nobel-link" href="https://www.stias.ac.za/events/nobel-symposium-in-economic-sciences-microdevelopment-research-in-the-last-20-years/" target="_blank">View symposium page ↗</a>
+    </div>
+    <div class="nobel-meta">
+      <div class="nobel-badge">NS192</div>
+      <div class="nobel-badge-label">Nobel Symposium<br/>March 2024</div>
+    </div>
   </div>
 </div>
 
-<!-- HERO -->
+<!-- RESEARCH -->
 <section class="hero" id="home">
   <div class="hero-text">
     <span class="hero-eyebrow">Behavioural Economist · Applied Microeconometrician</span>
@@ -437,6 +495,44 @@
     <div class="info-row">
       <span class="info-label">Industry</span>
       <span class="info-value"><a href="https://www.predictiveinsights.co.za" target="_blank">Predictive Insights ↗</a></span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label">Biography</p>
+    <h2 class="section-title">About <em>Rulof Burger</em></h2>
+    <div class="bio-text">
+      <p>
+        Rulof Burger is Professor of Economics at Stellenbosch University, where he has taught
+        since 2003, and Founding Director of Predictive Insights, a machine learning analytics
+        company helping businesses in more than 20 countries leverage AI to make better
+        operational and strategic decisions. His research sits at the intersection of behavioural
+        economics and applied microeconometrics, using randomised controlled trials, structural
+        econometric models, and rigorous quantitative methods to understand labour market behaviour,
+        poverty, and inequality in South Africa. His work spans job search and employment,
+        race-based discrimination, worker incentives and effort, the returns to education, and
+        the design of effective anti-poverty interventions.
+      </p>
+      <p>
+        He holds a D.Phil in Economics from Oxford University, an M.Phil from Cambridge University,
+        and an M.Comm from Stellenbosch University. He is an affiliated professor at the Abdul Latif
+        Jameel Poverty Action Lab (J-PAL) at MIT and has held visiting positions at Harvard
+        University. His research has been funded by the World Bank, IDRC, UNU-WIDER, and J-PAL
+        Africa. He has forthcoming publications in the <em>Review of Economics and Statistics</em>
+        and <em>Experimental Economics</em>, and his work has appeared in the
+        <em>American Economic Journal: Applied Economics</em>, <em>Health Economics</em>,
+        <em>Empirical Economics</em>, the <em>Journal of African Economies</em>, and the
+        <em>South African Journal of Economics</em>, among others.
+      </p>
+      <p>
+        In 2024 he co-convened Nobel Symposium NS192 — <em>Microdevelopment Research in the
+        Last 20 Years</em> — at STIAS alongside Jakob Svensson of Stockholm University, gathering
+        approximately 40 of the world's leading development economists under the auspices of
+        the Nobel Foundation.
+      </p>
     </div>
   </div>
 </section>
