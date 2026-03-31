@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.30)  31 MAR 2026 00:02
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.30)  31 MAR 2026 09:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -910,20 +910,19 @@ LaTeX Font Info:    Font shape `TU/SourceSans3(3)/m/sl' in size <8> not availabl
 (Font)              Font shape `TU/SourceSans3(3)/m/it' tried instead on input line 117.
 LaTeX Font Info:    Font shape `TU/SourceSans3(3)/m/it' will be
 (Font)              scaled to size 8.0pt on input line 117.
-LaTeX Font Info:    Font shape `TU/SourceSans3(1)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 129.
-LaTeX Font Info:    Font shape `TU/SourceSans3(1)/b/n' will be
-(Font)              scaled to size 9.0pt on input line 129.
-LaTeX Font Info:    Font shape `TU/SourceSans3(0)/m/n' will be
-(Font)              scaled to size 16.0pt on input line 141.
 [1
 
 ]
 LaTeX Font Info:    Font shape `TU/SourceSans3(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 177.
+(Font)              scaled to size 12.0pt on input line 176.
 LaTeX Font Info:    Font shape `TU/SourceSans3(1)/m/sc' will be
-(Font)              scaled to size 12.0pt on input line 177.
-[2] [3] [4] [5] [6] (./burger_cv.aux)
+(Font)              scaled to size 12.0pt on input line 176.
+[2] [3]
+LaTeX Font Info:    Font shape `TU/SourceSans3(1)/m/n' will be
+(Font)              scaled to size 9.0pt on input line 250.
+LaTeX Font Info:    Font shape `TU/SourceSans3(1)/b/n' will be
+(Font)              scaled to size 9.0pt on input line 250.
+[4] [5] (./burger_cv.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -932,12 +931,12 @@ Package rerunfilecheck Info: File `burger_cv.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 33118 strings out of 470191
- 680797 string characters out of 5476598
- 1249441 words of memory out of 5000000
- 61155 multiletter control sequences out of 15000+600000
+ 33117 strings out of 470191
+ 680773 string characters out of 5476598
+ 1257444 words of memory out of 5000000
+ 61154 multiletter control sequences out of 15000+600000
  632125 words of font info for 136 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 131i,12n,136p,568b,652s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 131i,11n,136p,547b,652s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on burger_cv.pdf (6 pages).
+Output written on burger_cv.pdf (5 pages).
